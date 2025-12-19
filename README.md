@@ -1,4 +1,4 @@
-# 🏀 NBA Win Probability AI
+# 🏀 NBA Prediction Engine
 
 This repository contains an end-to-end machine learning web app that predicts NBA game outcomes and lets you simulate custom 5v5 matchups. It uses an XGBoost classifier trained on historical NBA games and pulls active-season data for the interactive features.
 
@@ -17,7 +17,7 @@ This repository contains an end-to-end machine learning web app that predicts NB
 
 ---
 
-## How it works (high level)
+## How it works
 
 1. **Data ingestion**
    - Uses `nba_api` to retrieve current-season team/player data (2024–25)
@@ -47,12 +47,21 @@ This repository contains an end-to-end machine learning web app that predicts NB
 
 ## Installation
 
-1) Clone the repository
-git clone https://github.com/YOUR_USERNAME/nba-ai-predictor.git
-cd nba-ai-predictor
+1. Clone the repository:
 
-2) Install dependencies
-pip install -r requirements.txt
+    ```bash
+    git clone https://github.com/YOUR_USERNAME/nba-ai-predictor.git
+    cd nba-ai-predictor
+    ```
 
-3) Run the app
-streamlit run Home.py
+2. Install dependencies:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. Run the app:
+
+    ```bash
+    streamlit run Home.py
+    ```
