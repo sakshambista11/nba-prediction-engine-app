@@ -50,7 +50,7 @@ This repository contains an end-to-end machine learning web app that predicts NB
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/YOUR_USERNAME/nba-ai-predictor.git
+    git clone https://github.com/sakshambista11/nba-ai-predictor.git
     cd nba-ai-predictor
     ```
 
