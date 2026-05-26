@@ -2,6 +2,8 @@
 
 This repository contains an end-to-end machine learning web app that predicts NBA game outcomes and lets you simulate custom 5v5 matchups. It uses an XGBoost classifier trained on historical NBA games and pulls active-season data for the interactive features.
 
+🚀 **[Live Demo](https://nba-prediction-engine-app.streamlit.app/)**
+
 ---
 
 ## What this project does
