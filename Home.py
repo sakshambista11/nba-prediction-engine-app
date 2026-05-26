@@ -50,7 +50,7 @@ def get_team_stats(team_id):
 
     features = ['PTS', 'FGM', 'FGA', 'FG_PCT', 'FG3M', 'FG3A', 'FG3_PCT', 'FTM', 'FTA', 'FT_PCT', 'OREB', 'DREB', 'REB', 'AST', 'STL', 'BLK', 'TOV', 'PF']
 
-    latest_stats = team_df[features].tail(10).mean().to_frame().T
+    latest_stats = team_df[features].tail(20).mean().to_frame().T
     latest_stats.columns = [f'rolling_{c}' for c in latest_stats.columns]
     return latest_stats
 
