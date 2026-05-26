@@ -45,12 +45,34 @@ def load_nba_model():
     return joblib.load('nba_model.pkl')
 
 def get_player_id(playername):
+    """
+Looks up an NBA player's unique ID by their full name.
+
+Args:
+    playername (str): Full name of the player e.g. 'LeBron James'
+
+Returns:
+    int: The player's NBA API ID
+
+Raises:
+    ValueError: If the player name is not found in the NBA API
+"""
     playerlist = players.find_players_by_full_name(playername)
     if not playerlist:
         raise ValueError(f"Player '{playername}' not found in NBA API.")
     return playerlist[0]['id']
 
 def rolling_average(playerid):
+    """
+Fetches a player's 2024-25 game log and computes a 20-game rolling
+average for each stat category.
+
+Args:
+    playerid (int): The player's NBA API ID
+
+Returns:
+    pd.DataFrame: Single-row DataFrame of rolling average stats
+"""
     stats = playergamelog.PlayerGameLog(playerid, "2024-25", "Regular Season")
     df = stats.get_data_frames()[0]
     if df.empty:
@@ -65,6 +87,17 @@ def rolling_average(playerid):
     return df[rolling].tail(1)
 
 def get_lineup_stats(player_ids):
+    """
+Aggregates rolling average stats for a list of players into a
+single synthetic team profile for use in model prediction.
+
+Args:
+    player_ids (list): List of 5 NBA API player ID integers
+
+Returns:
+    pd.DataFrame: Single-row DataFrame with summed counting stats
+                  and averaged percentage stats across all 5 players
+"""
     all_cols = [f'rolling_{c}' for c in ['PTS', 'FGM', 'FGA', 'FG_PCT', 'FG3M', 'FG3A', 'FG3_PCT', 'FTM', 'FTA', 'FT_PCT', 'OREB', 'DREB', 'REB', 'AST', 'STL', 'BLK', 'TOV', 'PF']]
     sums_cols = [f'rolling_{c}' for c in ['PTS', 'FGM', 'FGA', 'FG3M', 'FG3A', 'FTM', 'FTA', 'OREB', 'DREB', 'REB', 'AST', 'STL', 'BLK', 'TOV', 'PF']]
     avgs_cols = [f'rolling_{c}' for c in ['FG_PCT', 'FG3_PCT', 'FT_PCT']]
