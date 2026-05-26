@@ -1,6 +1,6 @@
 # 🏀 NBA Win Probability AI
 
-This repository contains an end-to-end machine learning web app that predicts NBA game outcomes and lets you simulate custom 5v5 matchups. It uses an XGBoost classifier trained on historical NBA games and pulls active-season data for the interactive features.
+Predicts NBA game winners with 63% accuracy using XGBoost trained on 5,000+ games (2019–2024). Features a live Streamlit interface with two modes: a real-game team predictor and a custom 5v5 player simulator — both powered by live 2024–25 season data from the NBA API.
 
 🚀 **[Live Demo](https://nba-prediction-engine-app.streamlit.app/)**
 
